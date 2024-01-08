@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "convert ",
+    "dateExported": "2024-01-08T22:34:45.304Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a89fb2db-ab82-463e-851c-1044bd16d52a",
+            "colId": "da4a0364-efbf-4ac7-a7d0-902a605537e6",
+            "containerId": "",
+            "name": "http://localhost:3000/convert",
+            "url": "http://localhost:3000/convert",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-01-08T22:34:39.137Z",
+            "modified": "2024-01-08T22:34:39.137Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"amount\": 100,\n  \"baseCurrency\": \"EUR\",\n  \"targetCurrencies\": [\"USD\", \"JPY\"]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
