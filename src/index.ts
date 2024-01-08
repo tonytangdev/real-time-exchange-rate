@@ -1,9 +1,21 @@
 import express from "express";
 import { getRates } from "./helpers/rates";
 import { Currency } from "../types/currency";
+import rateLimit from "express-rate-limit";
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Define the rate limit rule
+const apiLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 1 day window
+  max: 100, // Limit each IP to 100 requests per `window`
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// Apply the rate limit to all requests
+app.use(apiLimiter);
 
 // Middleware to parse json body
 app.use(express.json());
