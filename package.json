@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "esbuild src/index.ts --bundle --outfile=dist/main.js --platform=node --sourcemap",
-    "dev": "concurrently \"esbuild src/index.ts --bundle --outfile=dist/main.js --platform=node --sourcemap --watch\" \"nodemon dist/main.js\"",
-    "start": "nodemon dist/main.js"
+    "dev": "concurrently \"esbuild src/index.ts --bundle --outfile=dist/main.js --platform=node --sourcemap --watch\" \"nodemon -r dotenv/config  dist/main.js\"",
+    "start": "nodemon -r dotenv/config dist/main.js"
   },
   "keywords": [],
   "author": "",
