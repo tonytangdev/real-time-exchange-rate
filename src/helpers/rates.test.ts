@@ -1,4 +1,4 @@
-import { API_URL, getRates } from "./rates";
+import { API_URL, getRates, convert } from "./rates";
 import { Currency } from "../../types/currency";
 
 const fetchMock = jest.spyOn(global, "fetch").mockImplementation(
@@ -40,5 +40,37 @@ describe("getRates", () => {
     await expect(
       getRates(baseCurrency, targetCurrencies)
     ).rejects.toThrow();
+  });
+});
+
+describe("convert", () => {
+  test("should return the correct converted amount", () => {
+    const amount = 10;
+    const rate = 1.5;
+    const expected = 15;
+
+    const result = convert(amount, rate);
+
+    expect(result).toBe(expected);
+  });
+
+  test("should return 0 if amount is 0", () => {
+    const amount = 0;
+    const rate = 1.5;
+    const expected = 0;
+
+    const result = convert(amount, rate);
+
+    expect(result).toBe(expected);
+  });
+
+  test("should return 0 if rate is 0", () => {
+    const amount = 10;
+    const rate = 0;
+    const expected = 0;
+
+    const result = convert(amount, rate);
+
+    expect(result).toBe(expected);
   });
 });

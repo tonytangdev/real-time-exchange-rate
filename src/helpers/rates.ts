@@ -24,3 +24,7 @@ export async function getRates(
 
   return data.data;
 }
+
+export function convert(amount: number, rate: number) {
+  return amount * rate;
+}
